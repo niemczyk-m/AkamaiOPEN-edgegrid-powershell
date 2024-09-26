@@ -2,13 +2,13 @@
 
 EdgeGrid for PowerShell
 
-> **NOTICE:** PowerShell EdgeGrid Client has been deprecated and is not supported anymore. For details on managing Akamai's product APIs via PowerShell, see the [Akamai Powershell Module](https://github.com/akamai/PowerShell) repo.
+> **NOTICE:** We have deprecated PowerShell EdgeGrid Client and no longer support it. For details on managing Akamai's product APIs via PowerShell, see the [Akamai Powershell Module](https://github.com/akamai/PowerShell) repo.
 
-Invoke-AkamaiOPEN is a PowerShell authorization wrapper around `Invoke-RestMethod`. It adds the required EdgeGrid signature to a normal `Invoke-RestMethod` request.
+`Invoke-AkamaiOPEN` is a PowerShell authorization wrapper around `Invoke-RestMethod`. It adds the required EdgeGrid signature to a normal `Invoke-RestMethod` request.
 
 ## Install
 
-Invoke-AkamaiOPEN requires PowerShell 3.0.
+`Invoke-AkamaiOPEN` requires PowerShell ≥ 5.1.
 
 ## Authentication
 
@@ -34,22 +34,18 @@ Available command line options:
 | Option | Description |
 | ---------- | --------- |
 | `-Method` | A request method. Valid values are `GET`, `POST`, `PUT`, and `DELETE`. |
-| `-ClientToken` | An authentication token used in client auth. Available in Luna Portal |
-| `-ClientAccessToken` | An authentication token used in client auth. Available in Luna Portal. |
-| `-ClientSecret` | An authentication password used in client auth. Available in Luna Portal. |
+| `-ClientToken` | An authentication token used in client auth. |
+| `-ClientAccessToken` | An authentication token used in client auth. |
+| `-ClientSecret` | An authentication password used in client auth. |
 | `-ReqURL`  | A full request URL complete with API location and parameters. Must be URL-encoded. |
-| `-Body` | Should contain the `POST` or `PUT` body. The body should be structured like a JSON object. For example: <br /> <br /> `$Body = '{"country":"USA","firstName":"John","lastName":"Smith", "jobTitle":"Engineer"}'` |
+| `-Body` | The `POST` or `PUT` body in JSON format. For example: <br /><br />`-Body '{"country":"USA", "firstName":"John", "lastName":"Smith", "jobTitle":"Engineer"}'` |
 
 ## Use
 
 To use the library, provide your authentication credentials and the appropriate endpoint information.
 
 ```bash
-Invoke-AkamaiOPEN -Method GET `
--ClientToken "akab-c113ntt0k3n4qtari252bfxxbsl-yvsdj" `
--ClientAccessToken "akab-acc35t0k3nodujqunph3w7hzp7-gtm6ij" `
--ClientSecret "C113nt53KR3TN6N90yVuAgICxIRwsObLi0E67/N8eRN=" `
--ReqURL "https://akab-h05tnam3wl42son7nktnlnnx-kbob3i3v.luna.akamaiapis.net/identity-management/v3/user-profile"
+Invoke-AkamaiOPEN -Method GET -ClientToken {your-client-token} -ClientAccessToken {your-access-token} -ClientSecret {your-client-secret} -ReqURL "https://{your-host}.akamaiapis.net/identity-management/v3/user-profile"
 ```
 
 ## Reporting issues
@@ -61,7 +57,7 @@ To report an issue or make a suggestion, create a new [GitHub issue](https://git
 Copyright 2024 Akamai Technologies, Inc. All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+you may not use these files except in compliance with the License.
 You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 
 Unless required by applicable law or agreed to in writing, software

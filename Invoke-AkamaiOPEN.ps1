@@ -5,21 +5,21 @@ EdgeGrid Powershell
 .DESCRIPTION
 Authorization wrapper around Invoke-RestMethod for use with Akamai's OPEN API initiative.
 .PARAMETER Method
-Request method. Valid values are GET, POST, PUT, and DELETE
+A request method. Valid values are GET, POST, PUT, and DELETE.
 .PARAMETER ClientToken
-Authentication token used in client auth. Available in Luna Portal.
+Authentication token used in client auth.
 .PARAMETER ClientAccessToken
-Authentication token used in client auth. Available in Luna Portal.
+Authentication token used in client auth.
 .PARAMETER ClientSecret
-Authentication password used in client auth. Available in Luna Portal.
+Authentication password used in client auth.
 .PARAMETER ReqURL
-Full request URL complete with API location and parameters. Must be URL encoded.
+A full request URL complete with API location and parameters. Must be URL encoded.
 .PARAMETER Body
-Should contain the POST/PUT Body. The body should be structured like a JSON object. Example: $Body = '{ "name": "botlist2", "type": "IP", "list": ["201.22.44.12", "8.7.6.0/24"] }'
+The POST or PUT body in JSON format. For example: -Body '{"country":"USA", "firstName":"John", "lastName":"Smith", "jobTitle":"Engineer"}'
 .EXAMPLE
-Invoke-AkamaiOPEN -Method GET -ClientToken "foo" -ClientAccessToken "foo" -ClientSecret "foo" -ReqURL "https://foo.luna.akamaiapis.net/diagnostic-tools/v1/locations"
+Invoke-AkamaiOPEN -Method GET -ClientToken {your-client-token} -ClientAccessToken {your-access-token} -ClientSecret {your-client-secret} -ReqURL "https://{your-host}.akamaiapis.net/identity-management/v3/user-profile"
 .LINK
-developer.akamai.com
+https://techdocs.akamai.com
 #>
 
 param(
